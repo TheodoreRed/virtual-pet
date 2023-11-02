@@ -17,17 +17,15 @@ export default class VirtualPet {
     return `${this.name} says ${sound}`;
   }
   feed(): void {
-    if (this.hunger - 10 <= 0) {
+    this.hunger -= 10;
+    if (this.hunger < 0) {
       this.hunger = 0;
-    } else {
-      this.hunger -= 10;
     }
   }
   play(): void {
-    if (this.happiness + 10 >= 100) {
+    this.happiness += 10;
+    if (this.happiness > 100) {
       this.happiness = 100;
-    } else {
-      this.happiness += 10;
     }
   }
 }
